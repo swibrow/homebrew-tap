@@ -1,28 +1,28 @@
 class AgentOps < Formula
   desc "TUI for monitoring and resuming Claude Code agent sessions in tmux"
   homepage "https://github.com/swibrow/agent-ops"
-  version "0.2.0"
+  version "0.3.0"
   license "MIT"
 
   on_macos do
     on_intel do
-      url "https://github.com/swibrow/agent-ops/releases/download/v0.2.0/agent-ops_0.2.0_x86_64-apple-darwin.tar.gz"
-      sha256 "2f0fe6766f81ec4cdae103f0c94d6df160da84040b034ff9a9b202894ab0f51c"
+      url "https://github.com/swibrow/agent-ops/releases/download/v0.3.0/agent-ops_0.3.0_x86_64-apple-darwin.tar.gz"
+      sha256 "8014ad55745a01d8bc170f2ac747430cf16776bf4affe01a762c298fe0e0a785"
     end
     on_arm do
-      url "https://github.com/swibrow/agent-ops/releases/download/v0.2.0/agent-ops_0.2.0_aarch64-apple-darwin.tar.gz"
-      sha256 "fbfd4268f5fe7dc43d51eb521bfc2d092f3894f17bff181403bf3993d1433124"
+      url "https://github.com/swibrow/agent-ops/releases/download/v0.3.0/agent-ops_0.3.0_aarch64-apple-darwin.tar.gz"
+      sha256 "eea26f9f9f489dbaba7ba9c3e0de8ba5225e080a6f923f369f47ddff210578ff"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/swibrow/agent-ops/releases/download/v0.2.0/agent-ops_0.2.0_x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "4538f79dd8be637515e54ab2d62cb1b10626aadc4866cc38c21129643a703f87"
+      url "https://github.com/swibrow/agent-ops/releases/download/v0.3.0/agent-ops_0.3.0_x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "948596e159c2fb4d5597aaab93e9340d6b190209cf3aa341a1342b33e43b99ae"
     end
     on_arm do
-      url "https://github.com/swibrow/agent-ops/releases/download/v0.2.0/agent-ops_0.2.0_aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "57b76b27f4e224a9cca14fe2d937d5d452f50c0ace1584af99073181d3adc874"
+      url "https://github.com/swibrow/agent-ops/releases/download/v0.3.0/agent-ops_0.3.0_aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "14f23a8a3ca6daa756455ba4c9fc6f33283e050052bc32d85f4c4c87a9180d42"
     end
   end
 
