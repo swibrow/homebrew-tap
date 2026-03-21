@@ -1,0 +1,50 @@
+name: Update README
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Formula/*.rb"
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate README
+        run: |
+          cat > README.md << 'HEADER'
+          # homebrew-tap
+
+          Homebrew tap for [swibrow](https://github.com/swibrow) CLI tools.
+
+          ## Usage
+
+          ```sh
+          brew tap swibrow/tap
+          ```
+
+          ## Available Formulas
+
+          | Formula | Description | Version | Install |
+          |---------|-------------|---------|---------|
+          HEADER
+
+          for formula in Formula/*.rb; do
+            name=$(grep 'class .* < Formula' "$formula" | sed 's/class \(.*\) < Formula/\1/' | tr '[:upper:]' '[:lower:]')
+            # Handle CamelCase class names (e.g., AgentOps -> agent-ops)
+            name=$(grep 'class .* < Formula' "$formula" | sed 's/class \(.*\) < Formula/\1/' | sed 's/\([a-z]\)\([A-Z]\)/\1-\2/g' | tr '[:upper:]' '[:lower:]')
+            desc=$(grep 'desc ' "$formula" | head -1 | sed 's/.*desc "\(.*\)"/\1/')
+            version=$(grep 'version ' "$formula" | head -1 | sed 's/.*version "\(.*\)"/\1/')
+            homepage=$(grep 'homepage ' "$formula" | head -1 | sed 's/.*homepage "\(.*\)"/\1/')
+            echo "| [${name}](${homepage}) | ${desc} | ${version} | \`brew install swibrow/tap/${name}\` |" >> README.md
+          done
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git diff --quiet README.md || (git add README.md && git commit -m "Update README with latest formulas" && git push)
