@@ -5,21 +5,21 @@
 class Gha < Formula
   desc "Terminal UI for GitHub Actions"
   homepage "https://github.com/swibrow/github-actions-tui"
-  version "0.3.0"
+  version "0.4.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/swibrow/github-actions-tui/releases/download/v0.3.0/github-actions-tui_0.3.0_darwin_amd64.tar.gz"
-      sha256 "725faa9b4255087e631b1009c91101437d433af6dc260c20103c0e1b36e1ed81"
+      url "https://github.com/swibrow/github-actions-tui/releases/download/v0.4.0/github-actions-tui_0.4.0_darwin_amd64.tar.gz"
+      sha256 "032a97081b504ddd9578244024adfd8eba6d116169d8aba9dc6175f215a3ef38"
 
       define_method(:install) do
         bin.install "gha"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/swibrow/github-actions-tui/releases/download/v0.3.0/github-actions-tui_0.3.0_darwin_arm64.tar.gz"
-      sha256 "a731c887f42590950fc34e5cb21557f7b971d6fcc6f93eb57a56ec1b6ddf5dce"
+      url "https://github.com/swibrow/github-actions-tui/releases/download/v0.4.0/github-actions-tui_0.4.0_darwin_arm64.tar.gz"
+      sha256 "1ae9053b9312ef63d5b746bfd0fea5ee8866e9844426f33be56bd45cec38a26e"
 
       define_method(:install) do
         bin.install "gha"
@@ -29,15 +29,15 @@ class Gha < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/swibrow/github-actions-tui/releases/download/v0.3.0/github-actions-tui_0.3.0_linux_amd64.tar.gz"
-      sha256 "de0a2c3d3f6e87266a54eb3f3c9cfa7fada7a4ce7ca27e79e8eedd1daf5aba38"
+      url "https://github.com/swibrow/github-actions-tui/releases/download/v0.4.0/github-actions-tui_0.4.0_linux_amd64.tar.gz"
+      sha256 "4c7c1391d25c0e8362f24ccc40d673c4cd8ed6f33aa2048e5f21953079575811"
       define_method(:install) do
         bin.install "gha"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/swibrow/github-actions-tui/releases/download/v0.3.0/github-actions-tui_0.3.0_linux_arm64.tar.gz"
-      sha256 "821a76cd67a07aa88793d19ce24ee797261f4f022d375c974638a911f722679b"
+      url "https://github.com/swibrow/github-actions-tui/releases/download/v0.4.0/github-actions-tui_0.4.0_linux_arm64.tar.gz"
+      sha256 "443d9f88f954f04eeb3ec83ca7f666e459970064a7228df25677b5f236a3744f"
       define_method(:install) do
         bin.install "gha"
       end
