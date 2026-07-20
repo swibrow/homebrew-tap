@@ -8,7 +8,7 @@ on:
 
 jobs:
   update-readme:
-    runs-on: ubuntu-latest
+    runs-on: homebrew-tap
     permissions:
       contents: write
     steps:
