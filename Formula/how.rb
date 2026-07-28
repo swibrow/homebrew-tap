@@ -10,8 +10,8 @@ class How < Formula
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/swibrow/how/releases/download/v1.0.1/how_1.0.1_darwin_amd64.tar.gz"
-      sha256 "77d06fe8ec002c522e1c354c7957a166dbeac625ea5e4d4c43335196b63674c3"
+      url "https://github.com/swibrow/how/archive/refs/tags/v2.0.0.tar.gz"
+      sha256 "bcb01b7fda679c0199da6b8aca01886befb24126802ab051176fe70b4ab14c58"
 
       define_method(:install) do
         bin.install "how"
