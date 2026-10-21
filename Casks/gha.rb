@@ -5,13 +5,11 @@ cask "gha" do
   on_macos do
     on_intel do
       sha256 "4113b7efa691b11da3eb4d63120d4a803306e5b711e9272cd0f0f8f3c459c9c6"
-      url "https://github.com/swibrow/github-actions-tui/releases/download/v#{version}/github-actions-tui_#{version}_darwin_amd64.tar.gz",
-        verified: "github.com/swibrow/github-actions-tui"
+      url "https://github.com/swibrow/github-actions-tui/releases/download/v#{version}/github-actions-tui_#{version}_darwin_amd64.tar.gz"
     end
     on_arm do
       sha256 "af61984d0a0f920839a047b627b0d9d50495de6ea8fbd0153d3a888f9da1d065"
-      url "https://github.com/swibrow/github-actions-tui/releases/download/v#{version}/github-actions-tui_#{version}_darwin_arm64.tar.gz",
-        verified: "github.com/swibrow/github-actions-tui"
+      url "https://github.com/swibrow/github-actions-tui/releases/download/v#{version}/github-actions-tui_#{version}_darwin_arm64.tar.gz"
     end
   end
 
@@ -25,9 +23,9 @@ cask "gha" do
 
   binary "gha"
 
-  postflight do
-    if OS.mac?
-      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/gha"]
+  postflight_steps do
+    on_macos do
+      run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{staged_path}}/gha"]
     end
   end
 
